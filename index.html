@@ -40,6 +40,11 @@
             ({
             method: "GET",
             url: "http://localhost:5248/api/Bank",
+            headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*"
+            },
             success: function (datiAnagrafici)
             {
 

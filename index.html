@@ -18,32 +18,15 @@
             </tbody>
         </table> 
         <script>
-            var datiAnagrafici = [
-                {
-                    firstName: "Andrea",
-                    surname: "Vinciguerra",
-                    age: 17
-                },
-                {
-                    firstName: "Flavio",
-                    surname: "Merlino",
-                    age: 17
-                },
-                {
-                    firstName: "Anni",
-                    surname: "Xu",
-                    age: 18
-                }
-            ];
 
             $.ajax
             ({
             method: "GET",
             url: "http://localhost:5248/api/Bank",
-            success: function (datiAnagrafici)
+            success: function (utenti)
             {
 
-                for (var utente of datiAnagrafici)
+                for (var utente of utenti)
                 {
                     var tr = $('<tr/>');
                     var tdFirstName = $('<td/>').text(utente.firstName);

@@ -22,8 +22,7 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>Numero</th>
-                    <th>Bilancio</th>
+                    <th>Account Balance</th>
                     <th>UserId</th>
                 </tr>
             </thead>
@@ -54,7 +53,7 @@
             $.ajax
             ({
             method: "GET",
-            url: "http://localhost:5248/api/Bank",
+            url: "http://localhost:5248/api/Customer",
             success: function (utenti)
             {
 
@@ -85,8 +84,6 @@
                 for (var utente of utenti)
                 {
                     var tr = $('<tr/>');
-                    var tdNumber = $('<td/>').text(utente.number);
-                    tr.append(tdNumber);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance);
                     var tdUserId = $('<td/>').text(utente.userId);

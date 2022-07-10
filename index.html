@@ -18,12 +18,12 @@
                 
             </tbody>
         </table> 
-        <br><br>
+
         <table border="1">
             <thead>
                 <tr>
-                    <th>Account Balance</th>
                     <th>UserId</th>
+                    <th>Account Balance</th>
                 </tr>
             </thead>
             <tbody id="dati-conto">
@@ -31,24 +31,6 @@
             </tbody>
         </table> 
         <script>
-          
-          /* var datiAnagrafici = [
-                {
-                    firstName: "Andrea",
-                    surname: "Vinciguerra",
-                    age: 17
-                },
-                {
-                    firstName: "Flavio",
-                    surname: "Merlino",
-                    age: 17
-                },
-                {
-                    firstName: "Anni",
-                    surname: "Xu",
-                    age: 18
-                }
-            ];*/
 
             $.ajax
             ({
@@ -84,11 +66,11 @@
                 for (var utente of utenti)
                 {
                     var tr = $('<tr/>');
-                    var tdBalance = $('<td/>').text(utente.balance);
-                    tr.append(tdBalance);
                     var tdUserId = $('<td/>').text(utente.userId);
                     tr.append(tdUserId);
-
+                    var tdBalance = $('<td/>').text(utente.balance);
+                    tr.append(tdBalance);
+                   
                     $('#dati-conto').append(tr);
                 } 
             }

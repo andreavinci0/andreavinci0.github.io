@@ -11,13 +11,45 @@
                     <th>Nome</th>
                     <th>Cognome</th>
                     <th>Età</th>
+                    <th>UserId</th>
                 </tr>
             </thead>
             <tbody id="dati-anagrafici">
                 
             </tbody>
         </table> 
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Bilancio</th>
+                    <th>UserId</th>
+                </tr>
+            </thead>
+            <tbody id="dati-conto">
+                
+            </tbody>
+        </table> 
         <script>
+          
+          /* var datiAnagrafici = [
+                {
+                    firstName: "Andrea",
+                    surname: "Vinciguerra",
+                    age: 17
+                },
+                {
+                    firstName: "Flavio",
+                    surname: "Merlino",
+                    age: 17
+                },
+                {
+                    firstName: "Anni",
+                    surname: "Xu",
+                    age: 18
+                }
+            ];*/
 
             $.ajax
             ({
@@ -35,8 +67,32 @@
                     tr.append(tdSurname);
                     var tdAge = $('<td/>').text(utente.age);
                     tr.append(tdAge);
+                    var tdUserId = $('<td/>').text(utente.userId);
+                    tr.append(tdUserId);
 
                     $('#dati-anagrafici').append(tr);
+                } 
+            }
+         });
+
+         $.ajax
+            ({
+            method: "GET",
+            url: "http://localhost:5248/api/Bank",
+            success: function (utenti)
+            {
+
+                for (var utente of utenti)
+                {
+                    var tr = $('<tr/>');
+                    var tdNumber = $('<td/>').text(utente.number);
+                    tr.append(tdNumber);
+                    var tdBalance = $('<td/>').text(utente.balance);
+                    tr.append(tdBalance);
+                    var tdUserId = $('<td/>').text(utente.userId);
+                    tr.append(tdUserId);
+
+                    $('#dati-conto').append(tr);
                 } 
             }
          });

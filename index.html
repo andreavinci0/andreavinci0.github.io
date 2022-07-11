@@ -15,9 +15,7 @@
                     <th>Account Balance</th>
                 </tr>
             </thead>
-            <tbody id="dati-anagrafici">
-                
-            </tbody>
+            <tbody id="dati"></tbody>
         </table> 
         <script>
           
@@ -44,9 +42,14 @@
 
          $.when(GetCustomers(), GetConti()).done(function(utenti, conti){
             var uc = [];
-            for (var utente of utenti)
+            for (var utente of utenti){
+                var conto = conti.find(conto => conto.userId == utente.userId);
                 var utenteConto = [];
-            var conto = conti.find(conto => conto.userId == utente.userId)
+                
+                uc.firstName = utente.firstName;
+                uc.surname = utente.firstName;
+                uc.userId = utente.userId;
+                uc.balance = utente.balance;
          });
 
         </script>

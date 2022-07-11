@@ -12,34 +12,40 @@
                     <th>Cognome</th>
                     <th>Età</th>
                     <th>UserId</th>
+                    <th>Account Balance</th>
                 </tr>
             </thead>
             <tbody id="dati-anagrafici">
                 
             </tbody>
         </table> 
-        
-        <br><br>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>UserId</th>
-                    <th>Account Balance</th>
-                </tr>
-            </thead>
-            <tbody id="dati-conto">
-                
-            </tbody>
-        </table> 
         <script>
+          
+          /* var datiAnagrafici = [
+                {
+                    firstName: "Andrea",
+                    surname: "Vinciguerra",
+                    age: 17
+                },
+                {
+                    firstName: "Flavio",
+                    surname: "Merlino",
+                    age: 17
+                },
+                {
+                    firstName: "Anni",
+                    surname: "Xu",
+                    age: 18
+                }
+            ];*/
 
+            var GetCustomers = function(){   
             $.ajax
             ({
             method: "GET",
             url: "http://localhost:5248/api/Customer",
-            success: function (utenti)
-            {
+            success: function (utenti){}
+            /*{
 
                 for (var utente of utenti)
                 {
@@ -54,18 +60,20 @@
                     tr.append(tdUserId);
 
                     $('#dati-anagrafici').append(tr);
-                } 
-            }
-         });
-
+                }
+            }*/
+            });
+        }
+        
+         var GetConti = function(){   
          $.ajax
             ({
             method: "GET",
             url: "http://localhost:5248/api/Bank",
-            success: function (utenti)
-            {
+            success: function (conti){}
+          /*  {
 
-                for (var utente of utenti)
+                for (var utente of conti)
                 {
                     var tr = $('<tr/>');
                     var tdUserId = $('<td/>').text(utente.userId);
@@ -75,7 +83,15 @@
                    
                     $('#dati-conto').append(tr);
                 } 
-            }
+            }*/
+        });
+        }
+
+         $.when(GetCustomers(), GetConti()).done(function(utenti, conti){
+            var uc = [];
+            for (var utente of utenti)
+                var utenteConto = [];
+            var conto = conti.find(conto => conto.userId == utente.userId)
          });
 
         </script>

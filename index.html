@@ -44,12 +44,14 @@
             var uc = [];
             for (var utente of utenti){
                 var conto = conti.find(conto => conto.userId == utente.userId);
-                var utenteConto = [];
+                var utenteConto = {};
                 
-                uc.firstName = utente.firstName;
-                uc.surname = utente.firstName;
-                uc.userId = utente.userId;
-                uc.balance = utente.balance;
+                utenteConto.firstName = utente.firstName;
+                utenteConto.surname = utente.surname;
+                utenteConto.userId = utente.userId;
+                utenteConto.balance = utente.balance;
+                
+                uc.push(utenteConto);
          });
 
         </script>

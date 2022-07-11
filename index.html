@@ -40,19 +40,36 @@
         });
         }
 
-         $.when(GetCustomers(), GetConti()).done(function(utenti, conti){
+         $.when(GetCustomers(), GetConti()).done(function(responseUser, responseBank){
             var uc = [];
-            for (var utente of utenti){
-                var conto = conti.find(conto => conto.userId == utente.userId);
+            for (var utente of responseUser[0]){
+                var conto = responseBank[0].find(conto => conto.userId == utente.userId);
                 var utenteConto = {};
                 
                 utenteConto.firstName = utente.firstName;
                 utenteConto.surname = utente.surname;
+                utenteConto.age = utente.age;
                 utenteConto.userId = utente.userId;
-                utenteConto.balance = utente.balance;
+                utenteConto.balance = conto.balance;
                 
                 uc.push(utenteConto);
             }
+             for (var utente of uc)
+                {
+                    var tr = $('<tr/>');
+                    var tdFirstName = $('<td/>').text(utente.firstName);
+                    tr.append(tdFirstName);
+                    var tdSurname = $('<td/>').text(utente.surname);
+                    tr.append(tdSurname);
+                    var tdAge = $('<td/>').text(utente.age);
+                    tr.append(tdAge);
+                    var tdUserId = $('<td/>').text(utente.userId);
+                    tr.append(tdUserId);
+                    var tdBalance = $('<td/>').text(utente.balance);
+                    tr.append(tdBalance); 
+
+                    $('#dati').append(tr);
+                }
          });
 
         </script>

@@ -21,23 +21,6 @@
         </table> 
         <script>
           
-          /* var datiAnagrafici = [
-                {
-                    firstName: "Andrea",
-                    surname: "Vinciguerra",
-                    age: 17
-                },
-                {
-                    firstName: "Flavio",
-                    surname: "Merlino",
-                    age: 17
-                },
-                {
-                    firstName: "Anni",
-                    surname: "Xu",
-                    age: 18
-                }
-            ];*/
 
             var GetCustomers = function(){   
             $.ajax
@@ -45,23 +28,7 @@
             method: "GET",
             url: "http://localhost:5248/api/Customer",
             success: function (utenti){}
-            /*{
-
-                for (var utente of utenti)
-                {
-                    var tr = $('<tr/>');
-                    var tdFirstName = $('<td/>').text(utente.firstName);
-                    tr.append(tdFirstName);
-                    var tdSurname = $('<td/>').text(utente.surname);
-                    tr.append(tdSurname);
-                    var tdAge = $('<td/>').text(utente.age);
-                    tr.append(tdAge);
-                    var tdUserId = $('<td/>').text(utente.userId);
-                    tr.append(tdUserId);
-
-                    $('#dati-anagrafici').append(tr);
-                }
-            }*/
+            
             });
         }
         
@@ -71,19 +38,7 @@
             method: "GET",
             url: "http://localhost:5248/api/Bank",
             success: function (conti){}
-          /*  {
-
-                for (var utente of conti)
-                {
-                    var tr = $('<tr/>');
-                    var tdUserId = $('<td/>').text(utente.userId);
-                    tr.append(tdUserId);
-                    var tdBalance = $('<td/>').text(utente.balance);
-                    tr.append(tdBalance);
-                   
-                    $('#dati-conto').append(tr);
-                } 
-            }*/
+         
         });
         }
 

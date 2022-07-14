@@ -55,7 +55,7 @@
                 balance: parseInt($('#balance').val())
             }
 
-             $.when(insertUser(user), insertConto(conto)).then(function (){
+             $.when(insertUser(user), insertConto(conto)).then(function (r1, r2){
                 $('#userid').val('');
                 $('#firstname').val('');
                 $('#surname').val('');

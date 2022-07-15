@@ -60,10 +60,11 @@
             });
          }
          
-         var DeleteContoUser = function(){
-            alert("Ciao");
-             console.log(this);
-         
+         var DeleteContoUser = function(userId, contoId){
+            
+             console.log(userId);
+             console.log(contoId);
+             
          }
 
          $.when(GetCustomers(), GetConti()).done(function(responseUser, responseBank){
@@ -77,6 +78,7 @@
                 utenteConto.age = utente.age;
                 utenteConto.userId = utente.userId;
                 utenteConto.balance = conto.balance;
+                utenteConto.contoId = conto.contoId;
                 
                 uc.push(utenteConto);
             }
@@ -93,7 +95,7 @@
                     tr.append(tdUserId);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance); 
-                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(DeleteContoUser)));
+                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(function(){  DeleteContoUser(utente.userId, utente.contoId)})));
                                     
                     $('#dati').append(tr);
                 }

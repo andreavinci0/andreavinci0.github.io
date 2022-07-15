@@ -41,6 +41,30 @@
          
         });
         }
+         
+         var RemoveCustomer = function(id){
+            return $.ajax
+            ({
+            method: "DELETE",
+            url: "http://localhost:5248/api/Customer/"+id,
+            success: function (utenti){}
+            });
+         }
+         
+         var RemoveConto = function(id){
+            return $.ajax
+            ({
+            method: "DELETE",
+            url: "http://localhost:5248/api/Bank/"+id,
+            success: function (conti){}
+            });
+         }
+         
+         var DeleteContoUser = function(){
+            alert("Ciao");
+             console.log(this);
+         
+         }
 
          $.when(GetCustomers(), GetConti()).done(function(responseUser, responseBank){
             var uc = [];
@@ -69,7 +93,7 @@
                     tr.append(tdUserId);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance); 
-                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash")));
+                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(DeleteContoUser)));
                                     
                     $('#dati').append(tr);
                 }

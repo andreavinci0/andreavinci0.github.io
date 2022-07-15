@@ -95,7 +95,7 @@
                     tr.append(tdUserId);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance); 
-                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click(function(){  DeleteContoUser(utente.userId, utente.contoId)})));
+                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash").click((function(userId, contoId){  DeleteContoUser(userId, contoId)})(utente.userId, utente.contoId))));
                                     
                     $('#dati').append(tr);
                 }

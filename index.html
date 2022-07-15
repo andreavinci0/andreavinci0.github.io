@@ -2,6 +2,7 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script rel="stylesheet" href=https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css></script>
        
     </head>
     <body>
@@ -13,6 +14,7 @@
                     <th>Età</th>
                     <th>UserId</th>
                     <th>Account Balance</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="dati"></tbody>
@@ -67,7 +69,9 @@
                     tr.append(tdUserId);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance); 
-
+                    var tdTrash = $('</td'>).addClass("fa fa-trash");
+                    tr.append(tdTrash);
+                                    
                     $('#dati').append(tr);
                 }
          });

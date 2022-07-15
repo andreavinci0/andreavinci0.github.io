@@ -61,7 +61,7 @@
          }
          
          var DeleteContoUser = function(userId, contoId){
-            if(confirm(`Sei sicuro di voler cancellare ${contoId}?`){
+            if(confirm(`Sei sicuro di voler cancellare ${contoId}?`)){
             $.when(RemoveCustomer(userId), RemoveConto(contoId)).done(function(responseUser, responseBank){
                 $('#'+contoId).remove();       
             });

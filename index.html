@@ -68,8 +68,7 @@
                     tr.append(tdUserId);
                     var tdBalance = $('<td/>').text(utente.balance);
                     tr.append(tdBalance); 
-                    var tdTrash = $('</td'>).addClass("fa fa-trash");
-                    tr.append(tdTrash);
+                    tr.append($('<td/>').append($('<i/>').addClass("fa fa-trash")));
                                     
                     $('#dati').append(tr);
                 }
